@@ -1,0 +1,44 @@
+{
+  "contacts": [
+    {
+      "id": "id-2",
+      "name": "Hermione Kline",
+      "number": "443-89-12"
+    },
+    {
+      "id": "id-3",
+      "name": "Eden Clements",
+      "number": "645-17-79"
+    },
+    {
+      "id": "id-4",
+      "name": "Annie Copeland",
+      "number": "227-91-26"
+    },
+    {
+      "id": "Hs-dzQHwn",
+      "name": "Анна",
+      "number": "789-56-89"
+    },
+    {
+      "id": "fKaPpkdqR",
+      "name": "shon",
+      "number": "789-56-89"
+    },
+    {
+      "id": "d2Is8_JgZ",
+      "name": "fil",
+      "number": "789-56-89"
+    },
+    {
+      "id": "6JpsD8YRq",
+      "name": "dru",
+      "number": "789-56-89"
+    },
+    {
+      "id": "mSgDaiY4q",
+      "name": "shon",
+      "number": "789-56-89"
+    }
+  ]
+}

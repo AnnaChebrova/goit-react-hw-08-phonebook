@@ -1,0 +1,82 @@
+.container {
+    margin-left: 30px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 15px;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.inputName {
+    margin-left: 30px;
+    padding: 5px 10px;
+    border: 1px solid rgb(143, 162, 188);
+    background-color:rgb(196, 212, 255);
+    border-radius: 5px;
+}
+
+.inputTel {
+    margin-left: 52px;
+    padding: 5px 10px;
+    border: 1px solid rgb(143, 162, 188);
+    background-color:rgb(196, 212, 255);
+    border-radius: 5px;
+}
+
+.btnForm {
+    width: 110px;
+    margin-left: 70px;
+    color: rgb(74, 71, 255);
+    background-color:rgb(196, 202, 255);
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid rgb(174, 143, 188);
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+}
+
+.list {
+    width: 500px;
+    list-style: none;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+    border: 1px solid rgb(143, 146, 188);
+    margin: 2px;
+}
+
+.btnList {
+    color: rgb(197, 71, 255);
+    background-color:rgb(238, 196, 255);
+    padding: 10px 20px;
+    border: 1px solid rgb(170, 143, 188);
+    border-radius: 5px;
+}
+
+.inputFilter {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid rgb(164, 143, 188);
+    background-color:rgb(236, 196, 255);
+    border-radius: 5px;
+}
+
+.btnFilter {
+    color: rgb(157, 71, 255);
+    background-color:rgb(241, 196, 255);
+    padding: 10px 20px;
+    border: 1px solid rgb(174, 143, 188);
+    border-radius: 5px;
+}
