@@ -16,7 +16,7 @@ function Filter() {
 
   const handleSearch = useCallback(() => {
     dispatch(updateQuery(query));
-  }, [dispatch, query]);
+  }, [query]);
 
   return (
     <div>

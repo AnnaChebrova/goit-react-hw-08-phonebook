@@ -1,48 +1,60 @@
-import { Route, Switch } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import styles from './components/phonebook.module.css'
-import ContactForm from './components/ContactForm';
-import Contacts from './components/Contacts';
-import Filter from './components/Filter';
-import { routes } from "./routes";
-// import {Home} 
-import { Registration } from './login/registration';
-import { Login } from './login/login';
+import { Switch } from 'react-router-dom';
+import { Suspense } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import styles from './components/phonebook.module.css';
+import { routes } from './routes';
+import HomeView from './Views/HomeView';
+import RegisterView from './Views/RegisterView';
+import LoginView from './Views/LoginView';
 import { ContactsView } from './Views/ContactsView';
-import { AppBar } from './components/AppBar';
+import AppBar from './components/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublikRoute';
+import authOperations from './redux/auth/auth-operations';
 
+// const HomeView = lazy(() => import('./Views/HomeView'));
+// const RegisterView = lazy(() => import('./Views/RegisterView'));
+// const LoginView = lazy(() => import('./Views/LoginView'));
 
+function App() {
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
+  return (
+    <div className={styles.container}>
+      <AppBar />
 
+      <Switch>
+        <Suspense fallback={<p>Загружаем...</p>}>
+          <PublicRoute exact path={routes.home} component={HomeView} />
 
-// const Contacts = lazy(() => import('./components/HomePage.js'));
-// const MoviesPage = lazy(() => import('./components/MoviesPage.js'));
+          <PublicRoute
+            exact
+            path={routes.register}
+            component={RegisterView}
+            restricted
+          />
 
-  function App() {
-    // usePageViews();
+          <PublicRoute
+            exact
+            path={routes.login}
+            component={LoginView}
+            redirectTo={routes.contacts}
+            restricted
+          />
 
-        return (
-
-        <div className={styles.container}>
-              <AppBar />
-
-
-<Suspense fallback={<h1>Loading.....</h1>}>
-
-<Switch>
-          {/* <Route path={routes.home} exact component={Home}/> */}
-          <Route path={routes.register} exact component={Registration}/>
-          <Route path={routes.login} exact component={Login}/>
-          <Route path={routes.contacts} exact component={ContactsView}/>
-
-        
-        </Switch>
-      </Suspense>
-
-
-         
-        </div>
-      )
-        }
-  export default App;
+          <PrivateRoute
+            path={routes.contacts}
+            component={ContactsView}
+            redirectTo={routes.login}
+          />
+        </Suspense>
+      </Switch>
+    </div>
+  );
+}
+export default App;

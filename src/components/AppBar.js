@@ -1,46 +1,24 @@
-import { NavLink } from "react-router-dom";
-// import UserMenu from "../UserMenu";
 import { useSelector } from 'react-redux';
-// import { AuthorizationSelectors } from '../../redux/authorization';
+import Navigation from './Navigation';
+import UserMenu from './UserMenu';
+import AuthNav from './AuthNav';
+import authSelectors from '../redux/auth/auth-selectors';
 
-
- function AppBar() {
-    // const isLoggedIn = useSelector(AuthorizationSelectors.isLoggedIn);
-    return (
-        // <header className={styles.header}>
-
-            // {!isLoggedIn ?
-                <nav>
-                    <NavLink exact
-                        to="/register"
-                        // className={styles.link}
-                        // activeClassName={styles.activeLink}
-                    >
-                        Register
-                    </NavLink>
-
-                    <NavLink exact
-                        to="/login"
-                        // className={styles.link}
-                        // activeClassName={styles.activeLink}
-                    >
-                        Login
-                    </NavLink>
-
-            
-                        <NavLink exact
-                            to="/contacts"
-                            // className={styles.link}
-                            // activeClassName={styles.activeLink}
-                        >
-                            Contacts
-                        </NavLink>
-                    </nav>
-                    // <UserMenu />
-
-        // </header>
-
-    );
+const styles = {
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottom: '1px solid #2A363B',
+  },
 };
 
-export  {AppBar}
+export default function AppBar() {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  return (
+    <header style={styles.header}>
+      <Navigation />
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    </header>
+  );
+}

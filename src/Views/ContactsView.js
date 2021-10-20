@@ -2,7 +2,7 @@ import Contacts from '../components/Contacts';
 import ContactForm from '../components/ContactForm';
 import Filter from '../components/Filter';
 
-  function ContactsView() {
+function ContactsView() {
   return (
     <>
       <h1>Phonebook</h1>
@@ -14,4 +14,4 @@ import Filter from '../components/Filter';
     </>
   );
 }
-export {ContactsView}
+export { ContactsView };
