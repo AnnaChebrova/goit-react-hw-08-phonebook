@@ -19,7 +19,8 @@ export const contactsSlice = createSlice({
     addContactSuccess: (state, action) => {
       if (state.items.some(c => c.name === action.payload.name)) {
         state.error = 'This contact is already exists in contacts';
-      } else {
+      } 
+       else {
         state.items.push(action.payload);
       }
     },

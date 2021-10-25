@@ -40,13 +40,14 @@ export default function LoginView() {
     <div>
       <h1>Страница логина</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
         <label style={styles.label}>
           Почта
           <input
             type="email"
             name="email"
             value={email}
+            autoComplete="on"
             onChange={handleChange}
           />
         </label>

@@ -3,16 +3,19 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import shortid from 'shortid';
 import { addContact as addContactThunk } from '../redux/thunk';
-import { getContactsErrorSelector } from '../redux/Selectors/contacts-selectors';
+import {
+  getContactsErrorSelector,
+  getContactsSelector,
+} from '../redux/Selectors/contacts-selectors';
 import styles from './phonebook.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(getContactsSelector);
+  const error = useSelector(getContactsErrorSelector);
 
   const dispatch = useDispatch();
-
-  const error = useSelector(getContactsErrorSelector);
 
   const handleInputChange = e => {
     const { name, value } = e.currentTarget;
@@ -37,10 +40,20 @@ const ContactForm = () => {
       number: number,
     };
 
-    dispatch(addContactThunk(newContact));
+    if (
+      contacts.find(
+        contact => name.toLowerCase() === contact.name.toLowerCase(),
+      )
+    ) {
+      alert(`${name} is already exists`);
+    } else if (contacts.find(contact => number === contact.number)) {
+      alert(`${number} is already exists`);
+    } else {
+      dispatch(addContactThunk(newContact));
 
-    setName('');
-    setNumber('');
+      setName('');
+      setNumber('');
+    }
   };
 
   return (

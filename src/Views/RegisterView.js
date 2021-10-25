@@ -44,7 +44,7 @@ export default function RegisterView() {
     <div>
       <h1>Страница регистрации</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
         <label style={styles.label}>
           Имя
           <input type="text" name="name" value={name} onChange={handleChange} />
@@ -57,6 +57,7 @@ export default function RegisterView() {
             name="email"
             value={email}
             onChange={handleChange}
+            autoComplete='on'
           />
         </label>
 
